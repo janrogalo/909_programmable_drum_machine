@@ -1,0 +1,70 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+
+h1{
+    color: black
+}
+
+.sfx {
+  position: absolute;
+
+
+}
+.sfx-bar{
+    display: flex;
+    flex: 8;
+    flex-direction: column;
+}
+
+.tracker{
+    display: flex;
+    flex-direction: row;
+}
+
+.seqs{
+    display: none;
+    position: absolute;
+    width: 61px;
+    height: 510px;
+    background-color: skyblue;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.show{
+    display: block;
+}
+
+}
+.snare{
+    margin-top: 7px;
+}
+
+input:checked:before {
+  filter: blur(10px);
+  opacity: 1;
+
+}
+input:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  bottom: -5px;
+  right: -5px;
+  z-index: -1;
+  background-size: 400%;
+  transition: 0.5s;
+}
+input {
+  height: 60px;
+  width: 60px;
+  transform: translate(0%, 0%);
+    background-color: darkgreen;
+  background-size: 400%;
+  cursor: pointer;
+  margin-right: 5px;
+}
