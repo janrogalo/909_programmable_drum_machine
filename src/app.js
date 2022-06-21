@@ -1,4 +1,47 @@
+let BPM = 120;
+let button = 0;
+let knob = document.querySelector("#potentiometer div");
 
+///
+
+function rotation() {
+
+
+    const potentiometer = document.querySelector("#potentiometer");
+    const diameter = potentiometer.offsetHeight
+    const calculation = diameter/2.66;
+
+
+    potentiometer.addEventListener("click", function(){button=0}, false);
+
+    for(i=0; i<360; i++) {
+        const radian = 2*Math.PI*(i/360);
+        const point = document.createElement("span");
+
+        point.setAttribute("onmousedown","button=1");
+        point.setAttribute("onmousemove","measure("+ i +")");
+        point.setAttribute("draggable","false");
+        point.style.height = diameter/4 +"px";
+        point.style.width = diameter/4 +"px";
+        point.style.top = (Math.cos(radian)*calculation)+calculation +"px";
+        point.style.left = -(Math.sin(radian)*calculation)+calculation +"px";
+        potentiometer.appendChild(point);
+    }
+}
+
+////
+
+function measure(V) {
+    document.title=button;
+    if(button==1) {
+        knob.style.transform = "rotate("+ V*1 +"deg)";
+    }
+    Tone.Transport.bpm.value = V;
+}
+
+onload = rotation
+
+///////
 function sequencer(){
     const kick = new Tone.Player('assets/SFX/kick.wav').toDestination();
     const snare = new Tone.Player('assets/SFX/snare.wav').toDestination();
@@ -11,11 +54,10 @@ function sequencer(){
 
 
     let index = 0;
-    let BPM = 120;
+
 
     const bpm = document.querySelector('.bpm')
     bpm.addEventListener('change', () => {Tone.Transport.bpm.value = Number(bpm.value);
-      console.log(BPM);
     })
 
     Tone.Transport.scheduleRepeat(repeat,'16n');
@@ -33,6 +75,12 @@ function sequencer(){
        Tone.Transport.stop();
        // Tone.Transport.position('1n');
    });
+
+
+    const reset = document.querySelector('.reset');
+    reset.addEventListener('click', ()=> {
+     location.reload(true);
+    });
 
 
 

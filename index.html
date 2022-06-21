@@ -13,19 +13,12 @@
 
 </head>
 <body>
-<header>
-  <h1>Your lovely 909-sequencer</h1>
-  <h3> choose BPM</h3>
-  <input type="number"  class="bpm" >
-  <div class="controls">
-    <button class="start">START</button>
-    <button class="stop">stop</button>
-  </div>
-</header>
+<h1>909 drum-sequencer</h1>
 
 <main>
+
+  </div>
   <div class="sfx">
-    <div class="sfx-bar">
       <div class="tracker">
         <div class="seqs" data-id="1"></div>
         <div class="seqs" data-id="2"></div>
@@ -209,7 +202,27 @@
         <span> cymbal</span>
       </div>
 
+
+    <div class="controls">
+
+
+      <h3>BPM</h3>
+
+      <div id="potentiometer" draggable=false>
+        <div draggable=false></div>
+      </div>
+
+
+
+
+
+      <input type="number" class="bpm" >
+      <button class="start">START</button>
+      <button class="stop">stop</button>
+      <button class="reset">reset</button>
     </div>
+
+
   </div>
 </main>
 

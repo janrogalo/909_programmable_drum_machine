@@ -3,18 +3,27 @@ margin: 0;
 padding: 0;
 }
 
-header {
-    padding: 10px;
-}
-
-h1{
-    color: black
-}
-
 main {
     display: flex;
     align-content: space-between;
     justify-content: center;
+}
+
+
+
+header {
+    padding: 10px;
+}
+
+button{
+    padding: 10px;
+    float: right;
+}
+
+h1{
+    color: black;
+    font-family: 'Orbitron', sans-serif;
+    padding: 20px;
 }
 
 .sfx {
@@ -55,32 +64,31 @@ main {
 
 }
 
-button{
-  padding: 10px;
-}
-
-input:checked:before {
-  opacity: 0.4;
-
-}
-input:before {
-    content: "";
-    position: absolute;
-
-    z-index: -1;
-    /*background: gold;*/
 
 
-}
 input {
     height: 50px;
     width: 50px;
-    transform: translate(0%, 0%);
-    /*background: gold;*/
-    background-size: 400%;
-    cursor: pointer;
     margin-right: 5px;
+    appearance: none;
+    border: 7px outset #d2d2d2;
+    border-radius: 4px;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: #e8e8e8;
+    cursor: pointer;
 }
+
+input:checked {
+    border: 7px outset #d2d2d2;
+    background-color: #b74c4c;
+}
+
+
+input:active {
+    border: 2px solid #34495E;
+}
+
 
 div span{
     font-family: 'Orbitron', sans-serif;
@@ -88,5 +96,36 @@ div span{
    justify-items: center;
 }
 .controls{
-    margin: 20px 0px
+ margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: inherit;
+}
+
+
+/*potentiometer*/
+
+
+#potentiometer {
+    position: relative;
+    width:60px; height: 60px;
+    margin: 20px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 10px silver;
+    overflow: hidden;
+    transform: rotate(20deg);
+}
+#potentiometer>div {
+    position: absolute;
+    width: inherit; height: inherit;
+    top: 0; left: 0;
+    background:
+            linear-gradient(90deg, grey 48%, black 49%, black 51%, grey 52%) 0 40px no-repeat, grey;
+
+    transition: transform 300ms ease-out;
+}
+#potentiometer span {
+    position: absolute;
+    cursor: grab;
 }
