@@ -1,6 +1,7 @@
 let BPM = 120;
 let button = 0;
 let knob = document.querySelector("#potentiometer div");
+const bpm = document.querySelector('.bpm')
 
 ///
 
@@ -12,10 +13,10 @@ function rotation() {
     const calculation = diameter/2.66;
 
 
-    potentiometer.addEventListener("click", function(){button=0}, false);
+    potentiometer.addEventListener("onmouseup", function(){button=0}, false);
 
-    for(i=0; i<360; i++) {
-        const radian = 2*Math.PI*(i/360);
+    for(i=0; i<240; i++) {
+        const radian = 2*Math.PI*(i/240);
         const point = document.createElement("span");
 
         point.setAttribute("onmousedown","button=1");
@@ -37,6 +38,8 @@ function measure(V) {
         knob.style.transform = "rotate("+ V*1 +"deg)";
     }
     Tone.Transport.bpm.value = V;
+   bpm.placeholder = V;
+
 }
 
 onload = rotation
@@ -56,9 +59,11 @@ function sequencer(){
     let index = 0;
 
 
-    const bpm = document.querySelector('.bpm')
+
     bpm.addEventListener('change', () => {Tone.Transport.bpm.value = Number(bpm.value);
     })
+
+
 
     Tone.Transport.scheduleRepeat(repeat,'16n');
     Tone.Transport.timeSignature = 4;

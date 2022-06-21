@@ -9,16 +9,10 @@ main {
     justify-content: center;
 }
 
-
-
 header {
     padding: 10px;
 }
 
-button{
-    padding: 10px;
-    float: right;
-}
 
 h1{
     color: black;
@@ -28,8 +22,10 @@ h1{
 
 .sfx {
   position: absolute;
-    padding: 4rem;
+    padding: 4rem 4rem 1.5rem 4rem;
     background-color: darkgrey;
+    box-shadow: 13px -10px 9px -3px rgba(84, 84, 84, 1);
+    border-radius: 4px;
 
 }
 
@@ -58,11 +54,7 @@ h1{
     margin-top: 7px;
 }
 
-.bpm{
-    width: 100px;
-    height: 25px;
 
-}
 
 
 
@@ -95,13 +87,62 @@ div span{
     padding: 10px;
    justify-items: center;
 }
+
+
+
+
+/*controls div*/
+
 .controls{
- margin-top: 20px;
+ margin-top: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     width: inherit;
+    font-family: 'Orbitron', sans-serif;
 }
+
+.floatRight{
+    position: relative;
+    float: end;
+}
+
+.floatLeft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    float: start;
+}
+
+button{
+    padding: 10px;
+    float: right;
+    border: 7px outset #d2d2d2;
+    border-radius: 4px;
+    margin-left: 20px;
+    width: 80px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+.bpm{
+    width: 60px;
+    height: 20px;
+    margin-right: 5px;
+    appearance: none;
+    border-radius: 0px;
+    border: 1px solid black;
+    padding: 10px;
+    transition-duration: 0.3s;
+    background-color: #e8e8e8;
+    cursor: pointer;
+}
+
+
+
 
 
 /*potentiometer*/
@@ -112,17 +153,17 @@ div span{
     width:60px; height: 60px;
     margin: 20px;
     border-radius: 100%;
-    box-shadow: 0 0 0 10px silver;
+    box-shadow: 0 0 0 8px #e1e1e1;
     overflow: hidden;
     transform: rotate(20deg);
 }
 #potentiometer>div {
     position: absolute;
-    width: inherit; height: inherit;
-    top: 0; left: 0;
-    background:
-            linear-gradient(90deg, grey 48%, black 49%, black 51%, grey 52%) 0 40px no-repeat, grey;
-
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, grey 48%, black 49%, black 51%, grey 52%) 0 40px no-repeat, grey;
     transition: transform 300ms ease-out;
 }
 #potentiometer span {
