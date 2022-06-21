@@ -27,8 +27,8 @@ h1{
 .seqs{
     display: none;
     position: absolute;
-    width: 61px;
-    height: 510px;
+    width: 50px;
+    height: 428px;
     background-color: skyblue;
     z-index: 1;
     opacity: 0.6;
@@ -42,6 +42,13 @@ h1{
 .snare{
     margin-top: 7px;
 }
+
+.bpm{
+    width: 100px;
+    height: 25px;
+
+}
+
 
 input:checked:before {
   filter: blur(10px);
@@ -60,11 +67,14 @@ input:before {
   transition: 0.5s;
 }
 input {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   transform: translate(0%, 0%);
-    background-color: darkgreen;
   background-size: 400%;
   cursor: pointer;
   margin-right: 5px;
+}
+
+.controls{
+    margin: 20px 0px
 }
